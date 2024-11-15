@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | E-Waste Management</title>
+  <style>
+    body {
+      background-color: #e8f0f2;
+      background-image: url(ewaste3.webp);
+      background-size: cover;
+      backdrop-filter: blur(5px);
+      color: #333;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .message {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 0 auto;
+      display: none; /* Initially hidden */
+    }
+
+    .fadeIn {
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hotline {
+      font-size: 24px;
+      color: #f44336;
+      margin-top: 20px;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(42,39,39,0.55);
+    }
+    h1{
+        color: white;
+    }
+    button{
+
+        height: 50px;
+        width: 130px;
+        background-color: #00796b;
+        outline: none;
+        border: none;
+        border-radius: 9px;
+        margin-top: 70px;
+        box-shadow: 1px 2px 15px rgba(8, 8, 8, 0.562);
+        color: white;
+        font-size: 18px;
+    }
+    button:hover{
+        background-color:#015f54 ;
+        box-shadow: 2px 2.5px 17px rgba(8, 8, 8, 0.562);
+        transition: ease-in-out 0.1s ;
+
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Thank You for Your Submission!</h1>
+  
+  <div class="message fadeIn" id="message"></div>
+  <div class="hotline fadeIn" id="hotline"></div>
+
+  <button onclick="window.location.href='index.html';">Back Home</button>
+  <script>
+    // Function to get query parameters from the URL
+    function getQueryParams() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return {
+        condition: urlParams.get('condition'),
+        hotline: urlParams.get('hotline')
+      };
+    }
+
+    // Get condition and hotline from the URL
+    const params = getQueryParams();
+
+    // Display the message based on the condition
+    const messageElement = document.getElementById('message');
+    const hotlineElement = document.getElementById('hotline');
+
+    if (params.condition) {
+      messageElement.textContent = `You have selected: ${params.condition}`;
+      messageElement.style.display = 'block'; // Show message with fade-in
+    }
+
+    if (params.hotline) {
+      hotlineElement.textContent = params.hotline;
+      hotlineElement.style.display = 'block'; // Show hotline with fade-in
+    }
+  </script>
+
+</body>
+</html>

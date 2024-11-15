@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Device Condition and Disposal</title>
+  <style>
+    /* Global Styles */
+    body, h1, h2, p, ul, li, input, select, button {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #e8f0f2;
+      color: #333;
+      line-height: 1.6;
+      background-image: url(ewaste2.jpg);
+      background-size: cover;
+
+    }
+
+    header {
+      background-color: #00796b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    header nav ul li {
+      display: inline-block;
+    }
+
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #00796b;
+      margin-bottom: 10px;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    form select, form input, form button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      background-color: #00796b;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #004d40;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #10695f7c;
+      color: black;
+      margin-top: 20px;
+    }
+
+    /* Animation styles */
+    .fadeIn {
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #resourceLink, #hotline {
+      display: none;
+    }
+
+    #resourceLink a {
+      color: #00796b;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #resourceLink a:hover {
+      text-decoration: underline;
+    }
+
+    #hotline {
+      font-size: 1.2rem;
+      color: #f44336;
+    }
+  </style>
+  <script>
+    function showDeviceInput() {
+      var deviceType = document.getElementById("device").value;
+      var otherDeviceInput = document.getElementById("otherDevice");
+      if (deviceType === "Others") {
+        otherDeviceInput.style.display = "block";
+      } else {
+        otherDeviceInput.style.display = "none";
+      }
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault(); // Prevent the form from submitting
+      
+      var condition = document.getElementById("condition").value;
+      var device = document.getElementById("device").value;
+      var resourceLink = document.getElementById("resourceLink");
+      var hotline = document.getElementById("hotline");
+
+      // Show the resource link and hotline based on the condition
+      if (condition === "Repairable") {
+        resourceLink.innerHTML = '<a href="https://www.google.com/maps/place/Philips+Service+Centre" target="_blank">Find Repair Centers near you</a>';
+        hotline.innerHTML = "";
+      } else if (condition === "Broken") {
+        hotline.innerHTML = "Call the e-waste collection community: +91 123 456 7890";
+        resourceLink.innerHTML = "";
+      } else if (condition === "Recyclable") {
+        hotline.innerHTML = "Call the e-waste recycling hotline: +91 987 654 3210";
+        resourceLink.innerHTML = "";
+      } else if (condition === "Hazardous") {
+        hotline.innerHTML = "Call the hazardous e-waste management hotline: +91 555 123 6789";
+        resourceLink.innerHTML = "";
+      } else {
+        resourceLink.innerHTML = "";
+        hotline.innerHTML = "";
+      }
+
+      // Add fade-in animation
+      resourceLink.classList.add("fadeIn");
+      hotline.classList.add("fadeIn");
+
+      // Redirect to the next page after a brief delay
+      setTimeout(function() {
+        window.location.href = "thankyou.html"; // Redirect to another page
+      }, 3000); // 3-second delay
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>E-Waste Condition and Disposal</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#form">Form</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="form">
+      <h2>Tell Us About Your E-Waste</h2>
+      <form onsubmit="handleSubmit(event)">
+        <label for="condition">Condition of the Device:</label>
+        <select id="condition" name="condition" required>
+          <option value="">Select Condition</option>
+          <option value="Repairable">Repairable</option>
+          <option value="Broken">Broken</option>
+          <option value="Recyclable">Recyclable</option>
+          <option value="Hazardous">Hazardous/Disposable</option>
+        </select>
+
+        <label for="device">Type of Device:</label>
+        <select id="device" name="device" required onchange="showDeviceInput()">
+          <option value="">Select Device</option>
+          <option value="TV">TV</option>
+          <option value="Radio">Radio</option>
+          <option value="Mobile">Mobile</option>
+          <option value="Charger">Charger</option>
+          <option value="Computer">Computer</option>
+          <option value="Laptop">Laptop</option>
+          <option value="Keyboard">Keyboard</option>
+          <option value="Mouse">Mouse</option>
+          <option value="Electronic Circuits">Electronic Circuits</option>
+          <option value="Wiring Cables">Wiring Cables</option>
+          <option value="CCTV Cameras">CCTV Cameras</option>
+          <option value="Digital Watch">Digital/Electronic Watches</option>
+          <option value="Tablet">Tablet</option>
+          <option value="Mixer">Mixers/Grinders</option>
+          <option value="Refrigerator">Refrigerator</option>
+          <option value="Cooling Pump">Cooling Pumps</option>
+          <option value="TV Antenna">TV Antennas</option>
+          <option value="Street Bulbs">Street Bulbs</option>
+          <option value="Others">Others</option>
+        </select>
+
+        <div id="otherDevice" style="display:none;">
+          <label for="otherDeviceName">Name of the Device:</label>
+          <input type="text" id="otherDeviceName" name="otherDeviceName" placeholder="Enter device name">
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 E-Waste Management | All Rights Reserved</p>
+  </footer>
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault(); // Prevent the form from submitting
+  
+      var condition = document.getElementById("condition").value;
+      var device = document.getElementById("device").value;
+      var hotline = "";
+  
+      // If the condition is "Repairable", redirect to the repair center link
+      if (condition === "Repairable") {
+        window.location.href = "https://www.google.com/maps/place/Philips+Service+Centre";
+        return; // Stop further execution
+      }
+  
+      // Set the hotline for other conditions
+      if (condition === "Broken") {
+        hotline = "Call the e-waste collection community: +91 123 456 7890";
+      } else if (condition === "Recyclable") {
+        hotline = "Call the e-waste recycling hotline: +91 987 654 3210";
+      } else if (condition === "Hazardous") {
+        hotline = "Call the hazardous e-waste management hotline: +91 555 123 6789";
+      }
+  
+      // Redirect to thankyou.html with the condition and hotline as query parameters for other conditions
+      window.location.href = `thankyou.html?condition=${condition}&hotline=${encodeURIComponent(hotline)}`;
+    }
+  </script>
+  
+  
+</body>
+</html>

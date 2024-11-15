@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Waste Management</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <style>
+    /* Global Styles */
+body, h1, h2, p, ul, li, input, select, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url(ewaste1.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+  background-color: #f4f7f6;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #4a90e2;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+header nav ul li {
+  display: inline-block;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #4a90e2;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input, form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: #4a90e2;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #357ab8;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="https://greene.gov.in/">Disposal Guidelines</a></li>
+        <li><a href="https://righttorepairindia.gov.in/">Repair Options</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <h1>E-Waste Management: Dispose Responsibly</h1>
+  </header>
+
+  <main>
+    <!-- Home Section -->
+    <section id="home">
+      <h2>Welcome to E-Waste Management</h2>
+      <p>Our goal is to help you dispose of electronic waste in an environmentally friendly way. Learn how to recycle, repair, or safely discard your old electronics.</p>
+    </section>
+
+    <!-- Disposal Guidelines Section -->
+    <section id="disposal">
+      <h2>Disposal Guidelines</h2>
+      <p>Improper disposal of e-waste can harm the environment. Here are some essential guidelines:</p>
+      <ul>
+        <li>Never throw e-waste in regular trash bins.</li>
+        <li>Find certified e-waste recycling centers near you.</li>
+        <li>Remove batteries before disposing of electronic devices.</li>
+        <li>Ensure data is erased from your devices before disposal.</li>
+      </ul>
+    </section>
+
+    <!-- Repair Options Section -->
+    <section id="repair">
+      <h2>Repair Options</h2>
+      <p>Many electronics can be repaired instead of discarded. Here are some repair options:</p>
+      <ul>
+        <li>Check for local repair shops that specialize in phones, computers, and more.</li>
+        <li>Try DIY repair guides for minor repairs like battery replacements or screen fixes.</li>
+        <li>Some brands offer official repair services for older models.</li>
+      </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>If you have any e-waste that you'd like to dispose of, or if you're looking for repair options, please fill out the form below:</p>
+      <form action="index2.html" method="get">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+        <label for="electronics">Type of Electronics:</label>
+        <select id="electronics" name="electronics" required>
+          <option value="">Select Electronics</option>
+          <option value="phone">Chemo-Electric Devices</option>
+          <option value="laptop">Electric Devices</option>
+          <option value="tablet">Electronic Devices </option>
+          <option value="tv">Bio-Electric Devices</option>
+          <option value="other">Other</option>
+        </select>
+
+    
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 E-Waste Management | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
